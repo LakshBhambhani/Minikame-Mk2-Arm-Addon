@@ -68,3 +68,28 @@ void homePos()
  BR_HIP.write(40);
  BR_FOOT.write(110);
 }
+
+void bow()
+{
+  homePos();
+  delay(200);
+  FL_FOOT.write(15);
+  FR_FOOT.write(15);
+  delay(700);
+  FL_FOOT.write(90);
+  FR_FOOT.write(90);
+  delay(700);
+}
+
+void stepLeftForward()
+{
+  FR_HIP.write(130);
+  FR_FOOT.write(70);
+  BL_HIP.write(130);
+  BL_FOOT.write(70);
+
+  delay(300);
+
+  
+  
+}
