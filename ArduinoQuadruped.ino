@@ -31,7 +31,7 @@ void setup() {
 }
 
 void loop() {
-  turnRight();
+  walkForward();
 } 
 
 void leanDemo()
@@ -76,27 +76,15 @@ void homePos()
 
 void bow()
 {
-  homePos();
-  delay(200);
-  FL_FOOT.write(15);
-  FR_FOOT.write(15);
-  delay(700);
-  FL_FOOT.write(90);
-  FR_FOOT.write(90);
-  delay(700);
+ FL_FOOT.write(140);
+ FR_FOOT.write(15);
+ BL_FOOT.write(130);
+ BR_FOOT.write(30);
 }
 
 void turnLeft()
 {
   // Front left and back right leg
-  // Home position for front right and back left leg
-  FR_HIP.write(130);
-  FR_FOOT.write(70);
-  BL_HIP.write(130);
-  BL_FOOT.write(70);
-
-  delay(200);
-
   // raises the foot in air
   FL_FOOT.write(130);
   BR_FOOT.write(130);
@@ -104,8 +92,8 @@ void turnLeft()
   delay(200);
 
   // turns the hip around
-  FL_HIP.write(90);
-  BR_HIP.write(90);
+  FL_HIP.write(0);
+  BR_HIP.write(0);
 
   delay(200);
 
@@ -180,8 +168,8 @@ void turnRight()
   delay(200);
 
   // turns the hip around
-  FR_HIP.write(40);
-  BL_HIP.write(40);
+  FR_HIP.write(80);
+  BL_HIP.write(80);
 
   delay(200);
 
@@ -194,4 +182,42 @@ void turnRight()
   // puts the hip back in original place
   FR_HIP.write(130);
   BL_HIP.write(130);
+}
+
+void walkForward()
+{ 
+ FR_FOOT.write(50);
+ BL_FOOT.write(50);
+
+ delay(200);
+  
+ FR_HIP.write(150);
+ BL_HIP.write(110);
+ FL_HIP.write(60);
+ BR_HIP.write(20);
+
+ delay(200);
+
+ FR_FOOT.write(70);
+ BL_FOOT.write(70);
+
+ delay(200);
+
+ FL_FOOT.write(130);
+ BR_FOOT.write(130);
+
+ delay(200);
+
+ FL_HIP.write(20);
+ BR_HIP.write(60);
+ FR_HIP.write(110);
+ BL_HIP.write(150);
+
+ delay(200);
+
+ FL_FOOT.write(110);
+ BR_FOOT.write(110);
+
+ delay(200);
+ 
 }
