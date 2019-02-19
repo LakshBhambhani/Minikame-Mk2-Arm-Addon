@@ -9,6 +9,8 @@ Servo BL_FOOT;
 Servo BR_HIP;
 Servo BR_FOOT;
 
+const int trigPin = 7; // Trigger Pin of Ultrasonic Sensor
+const int echoPin = 6; // Echo Pin of Ultrasonic Sensor
 
 void setup() { 
   FL_HIP.attach(4); 
@@ -31,7 +33,35 @@ void setup() {
 }
 
 void loop() {
-  walkForward();
+  int distance = getDistance();
+  if(distance < 6)
+  {
+    turnLeft();
+    int leftDistance = getDistance();
+    delay(500);
+    for(int i = 0; i <= 1; i++){
+      turnRight();
+    }
+    int rightDistance = getDistance();
+    if(leftDistance > rightDistance)
+    {
+      for(int i = 0; i <= 4; i++)
+      {
+        turnLeft();
+      }
+    }
+    else
+    {
+      for(int i = 0; i <= 3; i++)
+      {
+        turnRight();
+      }
+    }
+  }
+  else
+  {
+    walkForward();
+  }
 } 
 
 void leanDemo()
@@ -220,4 +250,34 @@ void walkForward()
 
  delay(200);
  
+}
+
+long microsecondsToInches(long microseconds) {
+   return microseconds / 74 / 2;
+}
+
+long microsecondsToCentimeters(long microseconds) {
+   return microseconds / 29 / 2;
+}
+
+int getDistance()
+{
+   long duration, inches, cm;
+   pinMode(trigPin, OUTPUT);
+   digitalWrite(trigPin, LOW);
+   delayMicroseconds(2);
+   digitalWrite(trigPin, HIGH);
+   delayMicroseconds(10);
+   digitalWrite(trigPin, LOW);
+   pinMode(echoPin, INPUT);
+   duration = pulseIn(echoPin, HIGH);
+   inches = microsecondsToInches(duration);
+   cm = microsecondsToCentimeters(duration);
+   Serial.print(inches);
+   Serial.print("in, ");
+   Serial.print(cm);
+   Serial.print("cm");
+   Serial.println();
+   delay(100);
+   return cm;
 }
