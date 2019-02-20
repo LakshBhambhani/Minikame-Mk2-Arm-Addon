@@ -9,8 +9,8 @@ Servo BL_FOOT;
 Servo BR_HIP;
 Servo BR_FOOT;
 
-const int trigPin = 7; // Trigger Pin of Ultrasonic Sensor
-const int echoPin = 6; // Echo Pin of Ultrasonic Sensor
+const int trigPin = 13; // Trigger Pin of Ultrasonic Sensor
+const int echoPin = 12; // Echo Pin of Ultrasonic Sensor
 
 void setup() { 
   FL_HIP.attach(4); 
