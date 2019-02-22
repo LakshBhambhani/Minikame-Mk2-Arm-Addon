@@ -9,6 +9,11 @@ Servo BL_FOOT;
 Servo BR_HIP;
 Servo BR_FOOT;
 
+Servo armShoulder;
+Servo armElbow;
+Servo armWrist;
+Servo armFist;
+
 const int trigPin = 13; // Trigger Pin of Ultrasonic Sensor
 const int echoPin = 12; // Echo Pin of Ultrasonic Sensor
 
@@ -21,6 +26,11 @@ void setup() {
   BL_FOOT.attach(9);
   BR_HIP.attach(10);
   BR_FOOT.attach(11);
+  
+  armShoulder.attach(3);
+  armElbow.attach(2);
+  armWrist.attach(1);
+  armFist.attach(0);
 
   FL_HIP.write(40);
   FL_FOOT.write(110);
