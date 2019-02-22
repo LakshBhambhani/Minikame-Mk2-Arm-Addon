@@ -26,52 +26,57 @@ void setup() {
   BL_FOOT.attach(9);
   BR_HIP.attach(10);
   BR_FOOT.attach(11);
-  
+
   armShoulder.attach(3);
   armElbow.attach(2);
   armWrist.attach(1);
   armFist.attach(0);
+  
+  homePos();
 
-  FL_HIP.write(40);
-  FL_FOOT.write(110);
-  FR_HIP.write(130);
-  FR_FOOT.write(70);
-  BL_HIP.write(130);
-  BL_FOOT.write(70);
-  BR_HIP.write(40);
-  BR_FOOT.write(110);
+  homePosArm();
 }
 
-void loop() {
-  int distance = getDistance();
-  if(distance < 6)
-  {
-    turnLeft();
-    int leftDistance = getDistance();
-    delay(500);
-    for(int i = 0; i <= 1; i++){
-      turnRight();
-    }
-    int rightDistance = getDistance();
-    if(leftDistance > rightDistance)
-    {
-      for(int i = 0; i <= 4; i++)
-      {
-        turnLeft();
-      }
-    }
-    else
-    {
-      for(int i = 0; i <= 3; i++)
-      {
-        turnRight();
-      }
-    }
-  }
-  else
-  {
-    walkForward();
-  }
+void loop() 
+{
+  grabHorizontalFront();
+  delay(1000);
+  homePosArm();
+  delay(1000);
+  grabHorizontalBack();
+  delay(1000);
+//  int distance = getDistance();
+//  homePosArm();
+//  if(distance < 6)
+//  {
+//    turnLeft();
+//    int leftDistance = getDistance();
+//    delay(500);
+//    for(int i = 0; i <= 1; i++){
+//      turnRight();
+//    }
+//    int rightDistance = getDistance();
+//    if(leftDistance > rightDistance)
+//    {
+//      for(int i = 0; i <= 4; i++)
+//      {
+//        turnLeft();
+//        grabHorizontalFront();
+//      }
+//    }
+//    else
+//    {
+//      for(int i = 0; i <= 3; i++)
+//      {
+//        turnRight();
+//        grabHorizontalFront();
+//      }
+//    }
+//  }
+//  else
+//  {
+//    walkForward();
+//  }
 } 
 
 void leanDemo()
@@ -290,4 +295,31 @@ int getDistance()
    Serial.println();
    delay(100);
    return cm;
+}
+
+void homePosArm()
+{
+  homePos();
+  armShoulder.write(160);
+  armElbow.write(0);
+  armWrist.write(90);
+  armFist.write(180);
+}
+
+void grabHorizontalFront()
+{
+  bow();
+  armShoulder.write(180);
+  armElbow.write(135);
+  armWrist.write(90);
+  armFist.write(0);
+}
+
+void grabHorizontalBack()
+{
+  homePos();
+  armShoulder.write(40);
+  armElbow.write(0);
+  armWrist.write(90);
+  armFist.write(0);
 }
