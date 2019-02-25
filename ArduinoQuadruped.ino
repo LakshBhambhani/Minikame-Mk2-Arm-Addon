@@ -45,6 +45,9 @@ void loop()
   delay(1000);
   grabHorizontalBack();
   delay(1000);
+  homePosArm();
+  delay(1000);
+  
 //  int distance = getDistance();
 //  homePosArm();
 //  if(distance < 6)
@@ -303,16 +306,19 @@ void homePosArm()
   armShoulder.write(160);
   armElbow.write(0);
   armWrist.write(90);
-  armFist.write(180);
+  armFist.write(0);
 }
 
 void grabHorizontalFront()
 {
   bow();
-  armShoulder.write(180);
-  armElbow.write(135);
+  armFist.write(90);
+  armShoulder.write(170);
+  armElbow.write(130);
   armWrist.write(90);
+  delay(1000);
   armFist.write(0);
+  
 }
 
 void grabHorizontalBack()
