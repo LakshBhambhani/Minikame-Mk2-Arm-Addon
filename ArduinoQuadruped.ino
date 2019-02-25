@@ -1,3 +1,7 @@
+/*
+ * Author: Laksh Bhambhani
+ */
+
 #include <Servo.h>
 
 Servo FL_HIP; 
@@ -14,7 +18,7 @@ Servo armElbow;
 Servo armWrist;
 Servo armFist;
 
-const int trigPin = 13; // Trigger Pin of Ultrasonic Sensor
+const int trigPin = 13; // Trig Pin of Ultrasonic Sensor
 const int echoPin = 12; // Echo Pin of Ultrasonic Sensor
 
 void setup() { 
@@ -39,48 +43,56 @@ void setup() {
 
 void loop() 
 {
+  
+} 
+
+void avoidObstacles()
+{
+  int distance = getDistance();
+  homePosArm();
+  if(distance < 6)
+  {
+    turnLeft();
+    int leftDistance = getDistance();
+    delay(500);
+    for(int i = 0; i <= 1; i++){
+      turnRight();
+    }
+    int rightDistance = getDistance();
+    if(leftDistance > rightDistance)
+    {
+      for(int i = 0; i <= 4; i++)
+      {
+        turnLeft();
+        grabHorizontalFront();
+      }
+    }
+    else
+    {
+      for(int i = 0; i <= 3; i++)
+      {
+        turnRight();
+        grabHorizontalFront();
+      }
+    }
+  }
+  else
+  {
+    walkForward();
+  }
+}
+
+void armDemo()
+{
   grabHorizontalFront();
   delay(1000);
   homePosArm();
   delay(1000);
-  grabHorizontalBack();
+  releaseHorizontalBack();
   delay(1000);
   homePosArm();
   delay(1000);
-  
-//  int distance = getDistance();
-//  homePosArm();
-//  if(distance < 6)
-//  {
-//    turnLeft();
-//    int leftDistance = getDistance();
-//    delay(500);
-//    for(int i = 0; i <= 1; i++){
-//      turnRight();
-//    }
-//    int rightDistance = getDistance();
-//    if(leftDistance > rightDistance)
-//    {
-//      for(int i = 0; i <= 4; i++)
-//      {
-//        turnLeft();
-//        grabHorizontalFront();
-//      }
-//    }
-//    else
-//    {
-//      for(int i = 0; i <= 3; i++)
-//      {
-//        turnRight();
-//        grabHorizontalFront();
-//      }
-//    }
-//  }
-//  else
-//  {
-//    walkForward();
-//  }
-} 
+}
 
 void leanDemo()
 {
@@ -128,6 +140,14 @@ void bow()
  FR_FOOT.write(15);
  BL_FOOT.write(130);
  BR_FOOT.write(30);
+}
+
+void bendBack()
+{
+ FL_FOOT.write(30);
+ FR_FOOT.write(130);
+ BL_FOOT.write(15);
+ BR_FOOT.write(140);
 }
 
 void turnLeft()
@@ -318,14 +338,77 @@ void grabHorizontalFront()
   armWrist.write(90);
   delay(1000);
   armFist.write(0);
-  
+}
+
+void grabVerticalFront()
+{
+  bow();
+  armFist.write(90);
+  armShoulder.write(170);
+  armElbow.write(130);
+  armWrist.write(0);
+  delay(1000);
+  armFist.write(0);
 }
 
 void grabHorizontalBack()
 {
-  homePos();
+  bendBack();
+  armFist.write(90);
   armShoulder.write(40);
   armElbow.write(0);
   armWrist.write(90);
+  delay(1000);
   armFist.write(0);
+}
+
+void grabVerticalBack()
+{
+  bendBack();
+  armFist.write(90);
+  armShoulder.write(40);
+  armElbow.write(0);
+  armWrist.write(0);
+  delay(1000);
+  armFist.write(0);
+}
+
+void releaseHorizontalFront()
+{
+  bow();
+  armShoulder.write(170);
+  armElbow.write(130);
+  armWrist.write(90);
+  delay(1000);
+  armFist.write(90);
+}
+
+void releaseVerticalFront()
+{
+  bow();
+  armShoulder.write(170);
+  armElbow.write(130);
+  armWrist.write(0);
+  delay(1000);
+  armFist.write(90);
+}
+
+void releaseHorizontalBack()
+{
+  bendBack();
+  armShoulder.write(40);
+  armElbow.write(0);
+  armWrist.write(90);
+  delay(1000);
+  armFist.write(90);
+}
+
+void releaseVerticalBack()
+{
+  bendBack();
+  armShoulder.write(40);
+  armElbow.write(0);
+  armWrist.write(0);
+  delay(1000);
+  armFist.write(90);
 }
