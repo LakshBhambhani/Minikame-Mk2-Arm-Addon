@@ -43,7 +43,10 @@ void setup() {
 
 void loop() 
 {
-  
+  armFist.write(0);
+  delay(1000);
+  armFist.write(35);
+  delay(1000);
 } 
 
 void avoidObstacles()
@@ -85,13 +88,13 @@ void avoidObstacles()
 void armDemo()
 {
   grabHorizontalFront();
-  delay(1000);
-  homePosArm();
-  delay(1000);
+  delay(700);
   releaseHorizontalBack();
-  delay(1000);
-  homePosArm();
-  delay(1000);
+  delay(700);
+  grabVerticalFront();
+  delay(700);
+  releaseVerticalBack();
+  delay(700);
 }
 
 void leanDemo()
@@ -338,6 +341,8 @@ void grabHorizontalFront()
   armWrist.write(90);
   delay(1000);
   armFist.write(0);
+  delay(700);
+  homePosArm();
 }
 
 void grabVerticalFront()
@@ -349,6 +354,8 @@ void grabVerticalFront()
   armWrist.write(0);
   delay(1000);
   armFist.write(0);
+  delay(700);
+  homePosArm();
 }
 
 void grabHorizontalBack()
@@ -360,6 +367,8 @@ void grabHorizontalBack()
   armWrist.write(90);
   delay(1000);
   armFist.write(0);
+  delay(700);
+  homePosArm();
 }
 
 void grabVerticalBack()
@@ -371,6 +380,8 @@ void grabVerticalBack()
   armWrist.write(0);
   delay(1000);
   armFist.write(0);
+  delay(700);
+  homePosArm();
 }
 
 void releaseHorizontalFront()
@@ -381,6 +392,8 @@ void releaseHorizontalFront()
   armWrist.write(90);
   delay(1000);
   armFist.write(90);
+  delay(700);
+  homePosArm();
 }
 
 void releaseVerticalFront()
@@ -391,6 +404,8 @@ void releaseVerticalFront()
   armWrist.write(0);
   delay(1000);
   armFist.write(90);
+  delay(700);
+  homePosArm();
 }
 
 void releaseHorizontalBack()
@@ -401,6 +416,8 @@ void releaseHorizontalBack()
   armWrist.write(90);
   delay(1000);
   armFist.write(90);
+  delay(700);
+  homePosArm();
 }
 
 void releaseVerticalBack()
@@ -411,4 +428,24 @@ void releaseVerticalBack()
   armWrist.write(0);
   delay(1000);
   armFist.write(90);
+  delay(700);
+  homePosArm();
+}
+
+void homePosGrabBall()
+{
+  homePos();
+  homePosArm();
+  armFist.write(90);
+  delay(1000);
+  armFist.write(0);
+}
+
+void homePosGrabHatch()
+{
+  homePos();
+  homePosArm();
+  armFist.write(0);
+  delay(1000);
+  armFist.write(25);
 }
