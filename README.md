@@ -50,3 +50,5 @@ Once coupled insert an M3 screw in the central hole and attach the finger to the
 
 ## Step 4: Upload code & Enjoy!!
 ![Minikame Image](https://github.com/LakshBhambhani/Minikame-Mk2-Arm-Addon/blob/master/Pictures/IMG_1930.JPG)
+
+Direction: You might have to change a little of the code by adding in the method in the loop method to do the specific thing that you want it to do
