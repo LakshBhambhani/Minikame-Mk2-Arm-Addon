@@ -48,4 +48,5 @@ Once coupled insert an M3 screw in the central hole and attach the finger to the
 
 ![Minikame Image](https://cdn.instructables.com/F89/2FM5/IF9UACN6/F892FM5IF9UACN6.LARGE.jpg)
 
-
+## Step 4: Enjoy and upload code!!
+![Minikame Image](https://github.com/LakshBhambhani/Minikame-Mk2-Arm-Addon/blob/master/Pictures/IMG_1930.JPG)
