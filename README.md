@@ -13,8 +13,10 @@ Refer to the following link to assemble your Minikame Mk2 Qadruped: https://www.
 ## Step 3: Arm Assembly
 
 ### 3.1: Start by mounting the Arm Base piece onto the Body Top of the quadruped
+![Minikame Image](https://github.com/LakshBhambhani/Minikame-Mk2-Arm-Addon/blob/master/Pictures/IMG_1956.JPG)
 
 ### 3.2: Attach a servo to the Arm Base. 
+![Minikame Image](https://github.com/LakshBhambhani/Minikame-Mk2-Arm-Addon/blob/master/Pictures/IMG_1957.JPG)
 
 ### 3.3: Mount the Arm Piece on to the servo you just installed. Attach the servo head too!
 ![Minikame Image](https://github.com/LakshBhambhani/Minikame-Mk2-Arm-Addon/blob/master/Pictures/IMG_1958.JPG)
