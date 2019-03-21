@@ -33,7 +33,7 @@ Refer to the following link to assemble your Minikame Mk2 Qadruped: https://www.
 ### 3.7 Attach the claw Piece
 ![Minikame Image](https://github.com/LakshBhambhani/Minikame-Mk2-Arm-Addon/blob/master/Pictures/IMG_1963.JPG)
 
-### 3.8 Follow these instruction. It's okay if the claw piece DOES NOT math your piece
+### 3.8 Follow these instruction. It's okay if the claw piece DOES NOT match your piece
  
 1) Attach the servo to the claw support using the two fixing screws supplied with the servo. Keep the output shaft forward
 ![Minikame Image](https://cdn.instructables.com/FQM/8P6M/IF9UABWP/FQM8P6MIF9UABWP.LARGE.jpg)
